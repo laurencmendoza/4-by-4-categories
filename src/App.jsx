@@ -1,26 +1,36 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import categories from './categories.json'
+import {shuffle} from 'lodash'
 
 function App() {
-  function getRandomAndRemove(num) {
+  const flatArr = categories.flat()
+  const [randomOrder, setRandomOrder] = useState([])
+  const [started, setStarted] = useState(false)
 
+  function createRandomOrder() {
+    setRandomOrder(shuffle(flatArr))
+  }
+
+  function startGame() {
+    setStarted(true)
+    setRandomOrder(shuffle(flatArr))
   }
 
   return (
     <>
+      {!started ? (
+      <button onClick={startGame}>Start</button>
+      ) : (
+        <>
+      <button onClick={createRandomOrder}>shuffle</button>
       <div className="grid grid-cols-4 gap-4">
-        {categories.map((category, idx)=>(
-          <>
-            <button>{category[0]}</button>
-            <button>{category[1]}</button>
-            <button>{category[2]}</button>
-            <button>{category[3]}</button>
-          </>
-        ))}
+        {randomOrder.map((el, idx)=>(<button key={idx}>{el}</button>))}
       </div>
+      </>
+      )}
+      
+      
     </>
   )
 }
