@@ -11,10 +11,13 @@ function App() {
 
   return (
     <>
-      <div>
+      <div className="grid grid-cols-4 gap-4">
         {categories.map((category, idx)=>(
           <>
-            <div>{category}</div>
+            <button>{category[0]}</button>
+            <button>{category[1]}</button>
+            <button>{category[2]}</button>
+            <button>{category[3]}</button>
           </>
         ))}
       </div>
