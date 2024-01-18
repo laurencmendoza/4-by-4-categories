@@ -44,7 +44,12 @@ function App() {
   // set boolean as true for submittable to allow submit function to run
 
   function select(element) {
-    setSelectedClass(element)
+
+    if (selectedClass !== element) {
+      setSelectedClass(element)
+    } else {
+      setSelectedClass('')
+    }
     if (answerChoices.length < 4) {
       setAnswerChoices([...answerChoices, element])
     }
@@ -79,7 +84,7 @@ function App() {
       ) : (
         <>
       <div className="grid grid-cols-4 gap-4">
-        {randomOrder.map((el, idx)=>(<button onClick={() => select(el)} className={selectedClass === el ? 'selected' : ''} key={idx}>{el}</button>))}
+        {randomOrder.map((el, idx)=>(<button onClick={() => select(el)} className={answerChoices.includes(el) ? 'selected' : ''} key={idx}>{el}</button>))}
       </div>
       <button onClick={createRandomOrder} className="mt-4 rounded-full">Shuffle</button>
       <button onClick={deselectAll} className="mt-4 mx-4 rounded-full">Deselect All</button>
