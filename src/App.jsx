@@ -18,6 +18,8 @@ function App() {
   // stores user's answer choices in an array
   const [answerChoices, setAnswerChoices] = useState([])
 
+  const [submittable, setSubmittable] = useState(false)
+
   // uses lodash shuffle algorithm to shuffle the flattened array of json data
   function createRandomOrder() {
     setRandomOrder(shuffle(flatArr))
@@ -37,12 +39,36 @@ function App() {
   // remove answer from array
   // change bg color back to original
 
+  // IF FOUR IS SELECTED
+  // display submit button as normal
+  // set boolean as true for submittable to allow submit function to run
+
   function select(element) {
-    // setSelectedClass((prev) => !prev)
+    setSelectedClass(element)
     if (answerChoices.length < 4) {
       setAnswerChoices([...answerChoices, element])
     }
     
+    if (answerChoices.length === 4) {
+      setSubmittable(true)
+    }
+
+    console.log(answerChoices)
+  }
+
+  // check if answer choices match any of the sub arrays in categories json
+  function submit() {
+      if (submittable) {
+        for (let i=0; i<categories.length; i++) {
+          
+        }
+      }
+  }
+
+  // set answer choices
+  function deselectAll() {
+    setAnswerChoices([])
+    console.log(answerChoices)
   }
 
 
@@ -53,9 +79,11 @@ function App() {
       ) : (
         <>
       <div className="grid grid-cols-4 gap-4">
-        {randomOrder.map((el, idx)=>(<button onClick={() => select(el)} className={`${selectedClass}`} key={idx}>{el}</button>))}
+        {randomOrder.map((el, idx)=>(<button onClick={() => select(el)} className={selectedClass === el ? 'selected' : ''} key={idx}>{el}</button>))}
       </div>
-      <button onClick={createRandomOrder} className="mt-4">shuffle</button>
+      <button onClick={createRandomOrder} className="mt-4 rounded-full">Shuffle</button>
+      <button onClick={deselectAll} className="mt-4 mx-4 rounded-full">Deselect All</button>
+      <button onClick={submit} className="mt-4 rounded-full">Submit</button>
       </>
       )}
     </>
