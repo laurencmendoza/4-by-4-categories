@@ -45,12 +45,11 @@ function App() {
 
   function select(element) {
 
-    if (selectedClass !== element) {
-      setSelectedClass(element)
-    } else {
-      setSelectedClass('')
+    if (answerChoices.includes(element)) {
+      setAnswerChoices(answerChoices.filter((a)=> (a !== element)))
     }
-    if (answerChoices.length < 4) {
+
+    if (answerChoices.length < 4 && !answerChoices.includes(element)) {
       setAnswerChoices([...answerChoices, element])
     }
     
