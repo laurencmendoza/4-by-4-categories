@@ -18,7 +18,11 @@ function App() {
   // stores user's answer choices in an array
   const [answerChoices, setAnswerChoices] = useState([])
 
+  // stores boolean to toggle display of submit button and allow answers to be checked
   const [submittable, setSubmittable] = useState(false)
+
+  // stores boolean to set answers as correct or incorrect
+  const [correct, setCorrect] = useState(false)
 
   // uses lodash shuffle algorithm to shuffle the flattened array of json data
   function createRandomOrder() {
@@ -52,11 +56,16 @@ function App() {
 
   // check if answer choices match any of the sub arrays in categories json
   function submit() {
-      if (submittable) {
-        for (let i=0; i<categories.length; i++) {
-          
+    let answerString = answerChoices.sort().join('')
+    if (submittable) {
+      for (let i=0; i<categories.length; i++) {
+        let categoryString = categories[i].sort().join('')
+        if (answerString === categoryString) {
+          setCorrect(true)
+          console.log('yay!')
         }
       }
+    }
   }
 
   // set answer choices
