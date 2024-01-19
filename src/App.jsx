@@ -78,15 +78,22 @@ function App() {
   return (
     <>
       {!started ? (
-      <button onClick={startGame}>Start</button>
+      <>
+        <h1 className="mb-6 text-4xl">4 by 4 Categories</h1>
+        <h2 className="mb-4">4 by 4 Categories is a game based on the NYT Connections game. </h2>
+        <p>Find groups of four items that share a category. </p>
+        <p>Once you have selected four items, click the 'Submit' button to check if your answer is correct. </p>
+        <p>Find all 4 categories without making 4 mistakes!</p>
+        <button onClick={startGame} className="mt-4">Start</button>
+      </>
       ) : (
-        <>
-      <div className="grid grid-cols-4 gap-4">
-        {randomOrder.map((el, idx)=>(<button onClick={() => select(el)} className={answerChoices.includes(el) ? 'selected' : ''} key={idx}>{el}</button>))}
-      </div>
-      <button onClick={createRandomOrder} className="mt-4 rounded-full bg-white border-1px border-[gray]">Shuffle</button>
-      <button onClick={deselectAll} className="mt-4 mx-4 rounded-full bg-white border-1px border-[gray]">Deselect All</button>
-      <button onClick={submit} className={`${submittable ? 'bg-white border-1px border-[gray]': 'text-[gray]'} mt-4 rounded-full`}>Submit</button>
+      <>
+        <div className="grid grid-cols-4 gap-4">
+          {randomOrder.map((el, idx)=>(<button onClick={() => select(el)} className={answerChoices.includes(el) ? 'selected' : ''} key={idx}>{el}</button>))}
+        </div>
+        <button onClick={createRandomOrder} className="mt-4 rounded-full bg-white border-1px border-[gray]">Shuffle</button>
+        <button onClick={deselectAll} className="mt-4 mx-4 rounded-full bg-white border-1px border-[gray]">Deselect All</button>
+        <button onClick={submit} className={`${submittable ? 'bg-white border-1px border-[gray]': 'text-[gray]'} mt-4 rounded-full`}>Submit</button>
       </>
       )}
     </>
