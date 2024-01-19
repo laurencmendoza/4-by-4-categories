@@ -31,33 +31,23 @@ function App() {
     setRandomOrder(shuffle(flatArr))
   }
 
-  // IF NOT ALREADY SELECTED
-  // store answer in array
-  // change bg color to dark
-  
-  // IF SELECTED
-  // remove answer from array
-  // change bg color back to original
-
-  // IF FOUR IS SELECTED
-  // display submit button as normal
-  // set boolean as true for submittable to allow submit function to run
-
+  // add answer choice to answer choice array 
   function select(element) {
-
+    // filters the answer choices array to remove element if already selected
     if (answerChoices.includes(element)) {
       setAnswerChoices(answerChoices.filter((a)=> (a !== element)))
     }
 
-    if (answerChoices.length < 4 && !answerChoices.includes(element)) {
+    // if there are less than 4 answer choices, add the answer choice to the array
+    if (answerChoices.length < 3 && !answerChoices.includes(element)) {
       setAnswerChoices([...answerChoices, element])
-    }
-    
-    if (answerChoices.length === 4) {
+    } else if (answerChoices.length < 4 && !answerChoices.includes(element)) {
+      setAnswerChoices([...answerChoices, element])
       setSubmittable(true)
+    } else {
+      setSubmittable(false)
     }
 
-    console.log(answerChoices)
   }
 
   // check if answer choices match any of the sub arrays in categories json
@@ -72,7 +62,7 @@ function App() {
   // set answer choices
   function deselectAll() {
     setAnswerChoices([])
-    console.log(answerChoices)
+    setSubmittable(false)
   }
 
 
@@ -85,9 +75,9 @@ function App() {
       <div className="grid grid-cols-4 gap-4">
         {randomOrder.map((el, idx)=>(<button onClick={() => select(el)} className={answerChoices.includes(el) ? 'selected' : ''} key={idx}>{el}</button>))}
       </div>
-      <button onClick={createRandomOrder} className="mt-4 rounded-full">Shuffle</button>
-      <button onClick={deselectAll} className="mt-4 mx-4 rounded-full">Deselect All</button>
-      <button onClick={submit} className="mt-4 rounded-full">Submit</button>
+      <button onClick={createRandomOrder} className="mt-4 rounded-full bg-white border-1px border-[gray]">Shuffle</button>
+      <button onClick={deselectAll} className="mt-4 mx-4 rounded-full bg-white border-1px border-[gray]">Deselect All</button>
+      <button onClick={submit} className={`${submittable ? 'bg-white border-1px border-[gray]': 'text-[gray]'} mt-4 rounded-full`}>Submit</button>
       </>
       )}
     </>
