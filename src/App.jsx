@@ -60,7 +60,7 @@ function App() {
         let categoryString = categories[i].sort().join('')
         if (answerString === categoryString) {
           setCorrectAnswers([...correctAnswers, ...categories[i]])
-          setRandomOrder(randomOrder.filter((c)=> (!correctAnswers.includes(c))))
+          setRandomOrder(randomOrder.filter((c)=> (!categories[i].includes(c))))
         }
       }
     }
