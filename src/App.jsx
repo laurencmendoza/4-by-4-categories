@@ -4,8 +4,8 @@ import categories from './categories.json'
 import {shuffle} from 'lodash'
 
 function App() {
-  // flatten categories json data into one array
-  const flatArr = categories.flat()
+  // flatten category elements into one array
+  const flatArr = categories.map((c)=> c.elements).flat()
 
   // stores a random order of the answer choices
   const [randomOrder, setRandomOrder] = useState(shuffle(flatArr))
@@ -21,6 +21,9 @@ function App() {
 
   // stores boolean to set answers as correct or incorrect
   const [correctAnswers, setCorrectAnswers] = useState([])
+
+  // stores colors for correct categories in order
+  const [correctAnswerColors, setCorrectAnswerColors] = useState([])
 
   // uses lodash shuffle algorithm to shuffle the flattened array of json data
   function createRandomOrder() {
@@ -57,12 +60,21 @@ function App() {
     let answerString = answerChoices.sort().join('')
     if (submittable) {
       for (let i=0; i<categories.length; i++) {
-        let categoryString = categories[i].sort().join('')
+        let categoryString = categories[i].elements.sort().join('')
         if (answerString === categoryString) {
-          setCorrectAnswers([...correctAnswers, ...categories[i]])
-          setRandomOrder(randomOrder.filter((c)=> (!categories[i].includes(c))))
+          setCorrectAnswers([...correctAnswers, ...categories[i].elements])
+          setRandomOrder(randomOrder.filter((c)=> (!categories[i].elements.includes(c))))
           setAnswerChoices([])
           setSubmittable(false)
+          if (i === 0) {
+            setCorrectAnswerColors([...correctAnswerColors, "yellow"])
+          } else if (i === 1) {
+            setCorrectAnswerColors([...correctAnswerColors, "green"])
+          } else if (i === 2) {
+            setCorrectAnswerColors([...correctAnswerColors, "blue"])
+          } else if (i === 3) {
+            setCorrectAnswerColors([...correctAnswerColors, "purple"])
+          }
         }
       }
     }

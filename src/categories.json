@@ -1,6 +1,22 @@
 [
-    ["a", "b", "c", "d"], 
-    ["1", "2", "3", "4"], 
-    ["one", "two", "three", "four"], 
-    ["AYE", "BEE", "SEE", "DEE"]
+    {
+        "color": "yellow", 
+        "elements": ["a", "b", "c", "d"], 
+        "category": "Letters in the alphabet"
+    },
+    {
+        "color": "green", 
+        "elements": ["1", "2", "3", "4"], 
+        "category": "Numbers"
+    }, 
+    {
+        "color": "blue", 
+        "elements": ["one", "two", "three", "four"], 
+        "category": "Numbers, spelled out"
+    }, 
+    {
+        "color": "purple", 
+        "elements": ["AYE", "BEE", "SEE", "DEE"], 
+        "category": "Letters in the alphabet, spelled out phonetically"
+    }
 ]
