@@ -61,6 +61,7 @@ function App() {
         if (answerString === categoryString) {
           setCorrectAnswers([...correctAnswers, ...categories[i]])
           setRandomOrder(randomOrder.filter((c)=> (!categories[i].includes(c))))
+          setAnswerChoices([])
         }
       }
     }
