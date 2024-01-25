@@ -22,9 +22,6 @@ function App() {
   // stores boolean to set answers as correct or incorrect
   const [correctAnswers, setCorrectAnswers] = useState([])
 
-  // stores colors for correct categories in order
-  const [correctAnswerColors, setCorrectAnswerColors] = useState([])
-
   // uses lodash shuffle algorithm to shuffle the flattened array of json data
   function createRandomOrder() {
     setRandomOrder(shuffle(randomOrder))
@@ -62,19 +59,11 @@ function App() {
       for (let i=0; i<categories.length; i++) {
         let categoryString = categories[i].elements.sort().join('')
         if (answerString === categoryString) {
-          setCorrectAnswers([...correctAnswers, ...categories[i].elements])
+          setCorrectAnswers([...correctAnswers, categories[i]])
           setRandomOrder(randomOrder.filter((c)=> (!categories[i].elements.includes(c))))
           setAnswerChoices([])
           setSubmittable(false)
-          if (i === 0) {
-            setCorrectAnswerColors([...correctAnswerColors, "yellow"])
-          } else if (i === 1) {
-            setCorrectAnswerColors([...correctAnswerColors, "green"])
-          } else if (i === 2) {
-            setCorrectAnswerColors([...correctAnswerColors, "blue"])
-          } else if (i === 3) {
-            setCorrectAnswerColors([...correctAnswerColors, "purple"])
-          }
+          
         }
       }
     }
@@ -102,7 +91,14 @@ function App() {
       <>
         <div className="grid grid-cols-4 gap-4">
           {correctAnswers && (
-            correctAnswers.map((el,idx)=>(<div key={idx}>{el}</div>))
+            correctAnswers.map((c,idx)=>(
+              <>
+                <div key={idx} className={`${c.color} col-span-4`}>
+                  {c.elements}
+                  <p>{c.category}</p>
+                </div>
+              </>
+            ))
           )}
           {randomOrder.map((el, idx)=>(<button onClick={() => select(el)} className={answerChoices.includes(el) ? 'selected' : ''} key={idx}>{el}</button>))}
         </div>
