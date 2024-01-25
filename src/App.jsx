@@ -62,6 +62,7 @@ function App() {
           setCorrectAnswers([...correctAnswers, ...categories[i]])
           setRandomOrder(randomOrder.filter((c)=> (!categories[i].includes(c))))
           setAnswerChoices([])
+          setSubmittable(false)
         }
       }
     }
