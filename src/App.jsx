@@ -22,7 +22,7 @@ function App() {
   const [submittable, setSubmittable] = useState(false)
 
   // stores boolean to set answers as correct or incorrect
-  const [correct, setCorrect] = useState(false)
+  const [correctAnswers, setCorrectAnswers] = useState([])
 
   // uses lodash shuffle algorithm to shuffle the flattened array of json data
   function createRandomOrder() {
@@ -61,8 +61,7 @@ function App() {
       for (let i=0; i<categories.length; i++) {
         let categoryString = categories[i].sort().join('')
         if (answerString === categoryString) {
-          setCorrect(true)
-          console.log('yay!')
+          setCorrectAnswers([...correctAnswers, ...categories[i]])
         }
       }
     }
@@ -89,6 +88,9 @@ function App() {
       ) : (
       <>
         <div className="grid grid-cols-4 gap-4">
+          {correctAnswers && (
+            correctAnswers.map((el,idx)=>(<div key={idx}>{el}</div>))
+          )}
           {randomOrder.map((el, idx)=>(<button onClick={() => select(el)} className={answerChoices.includes(el) ? 'selected' : ''} key={idx}>{el}</button>))}
         </div>
         <button onClick={createRandomOrder} className="mt-4 rounded-full bg-white border-1px border-[gray]">Shuffle</button>
