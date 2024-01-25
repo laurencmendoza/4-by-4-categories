@@ -8,12 +8,10 @@ function App() {
   const flatArr = categories.flat()
 
   // stores a random order of the answer choices
-  const [randomOrder, setRandomOrder] = useState([])
+  const [randomOrder, setRandomOrder] = useState(shuffle(flatArr))
 
   // stores boolean to start game
   const [started, setStarted] = useState(false)
-
-  const [selectedClass, setSelectedClass] = useState(false)
 
   // stores user's answer choices in an array
   const [answerChoices, setAnswerChoices] = useState([])
@@ -26,13 +24,13 @@ function App() {
 
   // uses lodash shuffle algorithm to shuffle the flattened array of json data
   function createRandomOrder() {
-    setRandomOrder(shuffle(flatArr))
+    setRandomOrder(shuffle(randomOrder))
   }
 
   // shuffles the flattened array of json data and shows the answer choices and hides start button
   function startGame() {
     setStarted(true)
-    setRandomOrder(shuffle(flatArr))
+    setRandomOrder(shuffle(randomOrder))
   }
 
   // add answer choice to answer choice array 
@@ -62,6 +60,7 @@ function App() {
         let categoryString = categories[i].sort().join('')
         if (answerString === categoryString) {
           setCorrectAnswers([...correctAnswers, ...categories[i]])
+          setRandomOrder(randomOrder.filter((c)=> (!correctAnswers.includes(c))))
         }
       }
     }
