@@ -110,14 +110,21 @@ function App() {
               </>
             ))
           )}
-          {randomOrder.map((el, idx)=>(<button onClick={() => select(el)} className={answerChoices.includes(el) ? 'selected' : ''} key={idx}>{el}</button>))}
+          {!remainingMistakes.length ? (
+            categories.map((c,idx)=>(
+              <>
+                <div key={idx} className={`${c.color} col-span-4`}>
+                  {c.elements}
+                  <p>{c.category}</p>
+                </div>
+              </>)
+          )) : (randomOrder.map((el, idx)=>(<button onClick={() => select(el)} className={answerChoices.includes(el) ? 'selected' : ''} key={idx}>{el}</button>)))}
         </div>
         <div className="mt-4">
           Mistakes remaining: 
           {remainingMistakes.map((x, idx)=> (
             <BsFillCircleFill className="inline text-[gray] mx-2" key={idx}/>
           ))}
-          
         </div>
         <button onClick={createRandomOrder} className="mt-4 rounded-full bg-white border-1px border-[gray]">Shuffle</button>
         <button onClick={deselectAll} className="mt-4 mx-4 rounded-full bg-white border-1px border-[gray]">Deselect All</button>
