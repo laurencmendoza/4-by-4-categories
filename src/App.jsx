@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import categories from './categories.json'
 import {shuffle} from 'lodash'
+import { BsFillCircleFill } from "react-icons/bs";
 
 function App() {
   // flatten category elements into one array
@@ -21,6 +22,9 @@ function App() {
 
   // stores boolean to set answers as correct or incorrect
   const [correctAnswers, setCorrectAnswers] = useState([])
+
+  // stores number of remaining mistakes
+  const [remainingMistakes, setRemainingMistakes] = useState([1,2,3,4])
 
   // uses lodash shuffle algorithm to shuffle the flattened array of json data
   function createRandomOrder() {
@@ -56,6 +60,7 @@ function App() {
   function submit() {
     let answerString = answerChoices.sort().join('')
     if (submittable) {
+      let noMatch = 0
       for (let i=0; i<categories.length; i++) {
         let categoryString = categories[i].elements.sort().join('')
         if (answerString === categoryString) {
@@ -63,9 +68,14 @@ function App() {
           setRandomOrder(randomOrder.filter((c)=> (!categories[i].elements.includes(c))))
           setAnswerChoices([])
           setSubmittable(false)
-          
+        } else {
+          noMatch++
+        }
+        if (noMatch === 4) {
+          setRemainingMistakes(remainingMistakes.slice(0,-1))
         }
       }
+      
     }
   }
 
@@ -101,6 +111,13 @@ function App() {
             ))
           )}
           {randomOrder.map((el, idx)=>(<button onClick={() => select(el)} className={answerChoices.includes(el) ? 'selected' : ''} key={idx}>{el}</button>))}
+        </div>
+        <div className="mt-4">
+          Mistakes remaining: 
+          {remainingMistakes.map((x, idx)=> (
+            <BsFillCircleFill className="inline text-[gray] mx-2" key={idx}/>
+          ))}
+          
         </div>
         <button onClick={createRandomOrder} className="mt-4 rounded-full bg-white border-1px border-[gray]">Shuffle</button>
         <button onClick={deselectAll} className="mt-4 mx-4 rounded-full bg-white border-1px border-[gray]">Deselect All</button>
