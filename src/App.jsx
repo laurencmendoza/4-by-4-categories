@@ -73,6 +73,8 @@ function App() {
         }
         if (noMatch === 4) {
           setRemainingMistakes(remainingMistakes.slice(0,-1))
+          setAnswerChoices([])
+          setSubmittable(false)
         }
       }
       
