@@ -11,22 +11,22 @@
 }
 
 .yellow {
-  background-color: lightyellow;
+  background-color: rgb(253,217,109);
   color: black;
 }
 
 .green {
-  background-color: lightgreen;
+  background-color: rgb(151,187,90);
   color: black;
 }
 
 .blue {
-  background-color: lightblue;
+  background-color: rgb(162,189,234);
   color: black;
 }
 
 .purple {
-  background-color: lavender; 
+  background-color: rgb(178,118,186); 
   color: black;
 
 }

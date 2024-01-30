@@ -77,7 +77,6 @@ function App() {
           setSubmittable(false)
         }
       }
-      
     }
   }
 
@@ -105,8 +104,8 @@ function App() {
           {correctAnswers && (
             correctAnswers.map((c,idx)=>(
               <>
-                <div key={idx} className={`${c.color} col-span-4`}>
-                  {c.elements}
+                <div key={idx} className={`${c.color} col-span-4 rounded py-1`}>
+                  {c.elements.join(', ')}
                   <p>{c.category}</p>
                 </div>
               </>
@@ -115,8 +114,8 @@ function App() {
           {!remainingMistakes.length ? (
             categories.map((c,idx)=>(
               <>
-                <div key={idx} className={`${c.color} col-span-4`}>
-                  {c.elements}
+                <div key={idx} className={`${c.color} col-span-4 rounded py-1`}>
+                  {c.elements.join(', ')}
                   <p>{c.category}</p>
                 </div>
               </>)
