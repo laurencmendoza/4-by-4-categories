@@ -126,6 +126,12 @@ function App() {
         {hint &&
         <div className="bg-[black] text-[white] w-max mx-auto px-4 py-2 rounded mb-4">{hint}</div>
         }
+        {remainingMistakes.length === 0 && 
+        <div className="bg-[black] text-[white] w-max mx-auto px-4 py-2 rounded mb-4">Try again next time!</div>
+        }
+        {correctAnswers.length === 4 && 
+        <div className="bg-[black] text-[white] w-max mx-auto px-4 py-2 rounded mb-4">Nice work!</div>
+        }
         <div className="grid grid-cols-4 gap-4">
           {correctAnswers && remainingMistakes.length > 0 && (
             correctAnswers.map((c,idx)=>(
