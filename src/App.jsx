@@ -26,6 +26,8 @@ function App() {
   // stores number of remaining mistakes
   const [remainingMistakes, setRemainingMistakes] = useState([1,2,3,4])
 
+  const [hint, setHint] = useState('')
+
   // uses lodash shuffle algorithm to shuffle the flattened array of json data
   function createRandomOrder() {
     setRandomOrder(shuffle(randomOrder))
@@ -58,6 +60,8 @@ function App() {
 
   // check if answer choices match any of the sub arrays in categories json
   function submit() {
+    setHint('')
+    checkOneAway()
     let answerString = answerChoices.sort().join('')
     if (submittable) {
       let noMatch = 0
@@ -80,6 +84,25 @@ function App() {
     }
   }
 
+  function checkOneAway() {
+    for (let i=0; i<categories.length; i++) {
+      let match = 0
+      for (let j=0; j<categories[i].elements.length; j++) {
+        for (let k=0; k<answerChoices.length; k++) {
+          if (categories[i].elements[j] === answerChoices[k]) {
+            match++
+            if (match === 3) {
+              setHint('One away...')
+            } else if (match === 4) {
+              setHint('')
+            }
+          }
+        }
+      }
+    }
+    
+  }
+
   // set answer choices
   function deselectAll() {
     setAnswerChoices([])
@@ -100,25 +123,23 @@ function App() {
       </>
       ) : (
       <>
+        <div>{hint}</div>
         <div className="grid grid-cols-4 gap-4">
           {correctAnswers && (
             correctAnswers.map((c,idx)=>(
-              <>
                 <div key={idx} className={`${c.color} col-span-4 rounded py-1`}>
                   {c.elements.join(', ')}
                   <p>{c.category}</p>
                 </div>
-              </>
             ))
           )}
           {!remainingMistakes.length ? (
             categories.map((c,idx)=>(
-              <>
                 <div key={idx} className={`${c.color} col-span-4 rounded py-1`}>
                   {c.elements.join(', ')}
                   <p>{c.category}</p>
                 </div>
-              </>)
+              )
           )) : (randomOrder.map((el, idx)=>(<button onClick={() => select(el)} className={answerChoices.includes(el) ? 'selected' : ''} key={idx}>{el}</button>)))}
         </div>
         <div className="mt-4">
