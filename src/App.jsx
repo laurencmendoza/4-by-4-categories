@@ -127,7 +127,7 @@ function App() {
         <div className="bg-[black] text-[white] w-max mx-auto px-4 py-2 rounded mb-4">{hint}</div>
         }
         <div className="grid grid-cols-4 gap-4">
-          {correctAnswers && (
+          {correctAnswers && remainingMistakes.length > 0 && (
             correctAnswers.map((c,idx)=>(
                 <div key={idx} className={`${c.color} col-span-4 rounded py-1`}>
                   {c.elements.join(', ')}
