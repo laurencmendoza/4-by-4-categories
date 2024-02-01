@@ -186,6 +186,9 @@ function App() {
         <button onClick={createRandomOrder} className="mt-4 rounded-full bg-white border-1px border-[gray]">Shuffle</button>
         <button onClick={deselectAll} className="mt-4 mx-4 rounded-full bg-white border-1px border-[gray]">Deselect All</button>
         <button onClick={submit} className={`${submittable ? 'bg-white border-1px border-[gray]': 'text-[gray]'} mt-4 rounded-full`}>Submit</button>
+        {(correctAnswers.length === 4 || remainingMistakes.length === 0) && 
+        <button className="block mt-4 mx-auto bg-white border-1px border-[gray]" onClick={()=> {navigator.clipboard.writeText('4 x 4 Categories' + '\n' + new Date().toDateString() + '\n' + emojis[0].join('') + '\n' + emojis[1].join('') + '\n' + emojis[2].join('') + '\n' + emojis[3].join('') + '\n')}}>Copy results to clipboard</button>
+        }
       </>
       )}
     </>
