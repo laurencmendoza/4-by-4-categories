@@ -26,7 +26,11 @@ function App() {
   // stores number of remaining mistakes
   const [remainingMistakes, setRemainingMistakes] = useState([1,2,3,4])
 
+  // stores hint when user is one away from the correct answer
   const [hint, setHint] = useState('')
+
+  // stores emojis to represent the player's answers by category
+  const [emojis, setEmojis] = useState([])
 
   // uses lodash shuffle algorithm to shuffle the flattened array of json data
   function createRandomOrder() {
@@ -55,13 +59,29 @@ function App() {
     } else {
       setSubmittable(false)
     }
+  }
 
+  function mapEmojiArray(answer) {
+    for (let i=0; i<categories.length; i++) {
+      if (categories[i].elements.includes(answer)) {
+        if (categories[i].color === 'yellow') {
+          return '🟨'
+        } else if (categories[i].color === 'green') {
+          return '🟩'
+        } else if (categories[i].color === 'blue') {
+          return '🟦'
+        } else if (categories[i].color === 'purple') {
+          return '🟪'
+        }
+      }
+    }
   }
 
   // check if answer choices match any of the sub arrays in categories json
   function submit() {
     setHint('')
     checkOneAway()
+    setEmojis([...emojis, answerChoices.map(mapEmojiArray)])
     let answerString = answerChoices.sort().join('')
     if (submittable) {
       let noMatch = 0
@@ -83,7 +103,10 @@ function App() {
       }
     }
   }
+  
+  
 
+  // check if answer is one away from correct and set hint
   function checkOneAway() {
     for (let i=0; i<categories.length; i++) {
       let match = 0
@@ -100,7 +123,6 @@ function App() {
         }
       }
     }
-    
   }
 
   // set answer choices
@@ -154,6 +176,11 @@ function App() {
           Mistakes remaining: 
           {remainingMistakes.map((x, idx)=> (
             <BsFillCircleFill className="inline text-[gray] mx-2" key={idx}/>
+          ))}
+        </div>
+        <div>
+          {emojis.map((c, idx) => (
+            <div key={idx}>{c}</div>
           ))}
         </div>
         <button onClick={createRandomOrder} className="mt-4 rounded-full bg-white border-1px border-[gray]">Shuffle</button>
