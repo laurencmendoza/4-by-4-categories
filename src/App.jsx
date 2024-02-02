@@ -61,6 +61,7 @@ function App() {
     }
   }
 
+  // map emojis for answer choices based on category color
   function mapEmojiArray(answer) {
     for (let i=0; i<categories.length; i++) {
       if (categories[i].elements.includes(answer)) {
@@ -104,6 +105,7 @@ function App() {
     }
   }
   
+  // write clipboard text to copy and share results
   function writeClipboardText() {
     if (emojis.length === 4) {
       navigator.clipboard.writeText(
@@ -220,11 +222,6 @@ function App() {
           Mistakes remaining: 
           {remainingMistakes.map((x, idx)=> (
             <BsFillCircleFill className="inline text-[gray] mx-2" key={idx}/>
-          ))}
-        </div>
-        <div>
-          {emojis.map((c, idx) => (
-            <div key={idx}>{c}</div>
           ))}
         </div>
         <button onClick={createRandomOrder} className="mt-4 rounded-full bg-white border-1px border-[gray]">Shuffle</button>
