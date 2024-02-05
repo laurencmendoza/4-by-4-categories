@@ -2,7 +2,8 @@ import { useState } from 'react'
 import './App.css'
 import categories from './categories.json'
 import {shuffle} from 'lodash'
-import { BsFillCircleFill } from "react-icons/bs";
+import { BsFillCircleFill } from "react-icons/bs"
+import {Textfit} from "react-textfit"
 
 function App() {
   // flatten category elements into one array
@@ -226,7 +227,8 @@ function App() {
                   <p className="font-bold">{c.category}</p>
                 </div>
               )
-          )) : (randomOrder.map((el, idx)=>(<button onClick={() => select(el)} className={answerChoices.includes(el) ? 'selected h-20 font-bold text-xs sm:text-base' : 'h-20 font-bold text-xs sm:text-base'} key={idx}>{el}</button>)))}
+          )) : (randomOrder.map((el, idx)=>(<button onClick={() => select(el)} className={answerChoices.includes(el) ? 'selected h-20 font-bold text-xs p-0' : 'h-20 font-bold text-xs p-0'} key={idx}>
+            <Textfit>{el}</Textfit></button>)))}
         </div>
         <div className="mt-4">
           Mistakes remaining: 
