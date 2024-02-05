@@ -4,7 +4,7 @@
 
 ## Getting Started
 
-[Click here to play!](link)
+[Click here to play!](https://4-by-4-categories.netlify.app/)
 
 ## Gameplay - Screenshots
 
