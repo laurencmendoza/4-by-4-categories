@@ -33,7 +33,7 @@
 
 ## Future Features
 <ul>
-  <li>Feedback when a player submits the same incorrect answer a second time, without acruing a mistake</li>
+  <li>Using local storage to save player's progress even after navigating away from webpage</li>
   <li>Animations when player clicks on words and gets a correct category</li>
 </ul>
 
