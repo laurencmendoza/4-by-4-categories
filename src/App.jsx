@@ -32,6 +32,9 @@ function App() {
   // stores emojis to represent the player's answers by category
   const [emojis, setEmojis] = useState([])
 
+  // stores previous answers to check if player has repeated a previous guess
+  const [previousAnswers, setPreviousAnswers] = useState([])
+
   // uses lodash shuffle algorithm to shuffle the flattened array of json data
   function createRandomOrder() {
     setRandomOrder(shuffle(randomOrder))
@@ -82,9 +85,16 @@ function App() {
   function submit() {
     setHint('')
     checkOneAway()
-    setEmojis([...emojis, answerChoices.map(mapEmojiArray)])
+    setPreviousAnswers([...previousAnswers, answerChoices.sort().join('')])
     let answerString = answerChoices.sort().join('')
     if (submittable) {
+      if (previousAnswers.includes(answerString)) {
+        setHint('Already guessed!')
+        setAnswerChoices([])
+        setSubmittable(false)
+      } else {
+        setEmojis([...emojis, answerChoices.map(mapEmojiArray)])
+      }
       let noMatch = 0
       for (let i=0; i<categories.length; i++) {
         let categoryString = categories[i].elements.sort().join('')
@@ -96,7 +106,7 @@ function App() {
         } else {
           noMatch++
         }
-        if (noMatch === 4) {
+        if (noMatch === 4 && !previousAnswers.includes(answerString)) {
           setRemainingMistakes(remainingMistakes.slice(0,-1))
           setAnswerChoices([])
           setSubmittable(false)
