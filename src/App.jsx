@@ -226,7 +226,7 @@ function App() {
                   <p className="font-bold">{c.category}</p>
                 </div>
               )
-          )) : (randomOrder.map((el, idx)=>(<button onClick={() => select(el)} className={answerChoices.includes(el) ? 'selected h-20 font-bold' : 'h-20 font-bold'} key={idx}>{el}</button>)))}
+          )) : (randomOrder.map((el, idx)=>(<button onClick={() => select(el)} className={answerChoices.includes(el) ? 'selected h-20 font-bold text-xs sm:text-base' : 'h-20 font-bold text-xs sm:text-base'} key={idx}>{el}</button>)))}
         </div>
         <div className="mt-4">
           Mistakes remaining: 
@@ -235,7 +235,7 @@ function App() {
           ))}
         </div>
         <button onClick={createRandomOrder} className="mt-4 rounded-full bg-white border-1px border-[gray]">Shuffle</button>
-        <button onClick={deselectAll} className="mt-4 mx-4 rounded-full bg-white border-1px border-[gray]">Deselect All</button>
+        <button onClick={deselectAll} className="mt-4 sm:mx-4 mx-2 rounded-full bg-white border-1px border-[gray]">Deselect All</button>
         <button onClick={submit} className={`${submittable ? 'bg-white border-1px border-[gray]': 'text-[gray]'} mt-4 rounded-full`}>Submit</button>
         {(correctAnswers.length === 4 || remainingMistakes.length === 0) && 
         <button className="block mt-4 mx-auto bg-white border-1px border-[gray]" onClick={()=> (writeClipboardText())}>Copy results to clipboard</button>
