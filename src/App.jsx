@@ -203,20 +203,20 @@ function App() {
         <div className="grid grid-cols-4 gap-4">
           {correctAnswers && remainingMistakes.length > 0 && (
             correctAnswers.map((c,idx)=>(
-                <div key={idx} className={`${c.color} col-span-4 rounded py-1`}>
-                  {c.elements.join(', ')}
+                <div key={idx} className={`${c.color} col-span-4 rounded h-20 flex flex-col justify-center gap-1`}>
+                  <p>{c.elements.join(', ')}</p>
                   <p>{c.category}</p>
                 </div>
             ))
           )}
           {!remainingMistakes.length ? (
             categories.map((c,idx)=>(
-                <div key={idx} className={`${c.color} col-span-4 rounded py-1`}>
-                  {c.elements.join(', ')}
+                <div key={idx} className={`${c.color} col-span-4 rounded h-20 flex flex-col justify-center gap-1`}>
+                  <p>{c.elements.join(', ')}</p>
                   <p>{c.category}</p>
                 </div>
               )
-          )) : (randomOrder.map((el, idx)=>(<button onClick={() => select(el)} className={answerChoices.includes(el) ? 'selected' : ''} key={idx}>{el}</button>)))}
+          )) : (randomOrder.map((el, idx)=>(<button onClick={() => select(el)} className={answerChoices.includes(el) ? 'selected h-20' : 'h-20'} key={idx}>{el}</button>)))}
         </div>
         <div className="mt-4">
           Mistakes remaining: 
