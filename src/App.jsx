@@ -215,7 +215,7 @@ function App() {
             correctAnswers.map((c,idx)=>(
                 <div key={idx} className={`${c.color} col-span-4 rounded h-20 flex flex-col justify-center gap-1`}>
                   <p>{c.elements.join(', ')}</p>
-                  <p>{c.category}</p>
+                  <p className="font-bold">{c.category}</p>
                 </div>
             ))
           )}
@@ -223,10 +223,10 @@ function App() {
             categories.map((c,idx)=>(
                 <div key={idx} className={`${c.color} col-span-4 rounded h-20 flex flex-col justify-center gap-1`}>
                   <p>{c.elements.join(', ')}</p>
-                  <p>{c.category}</p>
+                  <p className="font-bold">{c.category}</p>
                 </div>
               )
-          )) : (randomOrder.map((el, idx)=>(<button onClick={() => select(el)} className={answerChoices.includes(el) ? 'selected h-20' : 'h-20'} key={idx}>{el}</button>)))}
+          )) : (randomOrder.map((el, idx)=>(<button onClick={() => select(el)} className={answerChoices.includes(el) ? 'selected h-20 font-bold' : 'h-20 font-bold'} key={idx}>{el}</button>)))}
         </div>
         <div className="mt-4">
           Mistakes remaining: 

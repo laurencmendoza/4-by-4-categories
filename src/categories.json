@@ -1,22 +1,22 @@
 [
     {
         "color": "yellow", 
-        "elements": ["a", "b", "c", "d"], 
-        "category": "Letters in the alphabet"
+        "elements": ["FULL", "QUEEN", "KING", "TWIN"], 
+        "category": "BED SIZES"
     },
     {
         "color": "green", 
-        "elements": ["1", "2", "3", "4"], 
-        "category": "Numbers"
+        "elements": ["SAME", "ALIKE", "ANALOGOUS", "MATCHING"], 
+        "category": "IDENTICAL; NOT DIFFERENT"
     }, 
     {
         "color": "blue", 
-        "elements": ["one", "two", "three", "four"], 
-        "category": "Numbers, spelled out"
+        "elements": ["STOP", "SEAL", "PLUG", "CORK"], 
+        "category": "TO CLOSE UP A HOLE"
     }, 
     {
         "color": "purple", 
-        "elements": ["AYE", "BEE", "SEE", "DEE"], 
-        "category": "Letters in the alphabet, spelled out phonetically"
+        "elements": ["SEEL", "ELECTRODE", "DITTO", "MEOWTH"], 
+        "category": "POKÉMON"
     }
 ]
