@@ -228,7 +228,7 @@ function App() {
                 </div>
               )
           )) : (randomOrder.map((el, idx)=>(<button onClick={() => select(el)} className={answerChoices.includes(el) ? 'selected h-20 font-bold text-xs p-0' : 'h-20 font-bold text-xs p-0'} key={idx}>
-            <Textfit>{el}</Textfit></button>)))}
+            <Textfit max='14'>{el}</Textfit></button>)))}
         </div>
         <div className="mt-4">
           Mistakes remaining: 
