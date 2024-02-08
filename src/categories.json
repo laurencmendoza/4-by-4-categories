@@ -1,22 +1,22 @@
 [
     {
         "color": "yellow", 
-        "elements": ["FULL", "QUEEN", "KING", "TWIN"], 
-        "category": "BED SIZES"
+        "elements": ["ROCK", "PAPER", "SCISSORS", "SHOOT"], 
+        "category": "THINGS YOU SAY WHILE PLAYING ROCK, PAPER, SCISSORS"
     },
     {
         "color": "green", 
-        "elements": ["SAME", "ALIKE", "ANALOGOUS", "MATCHING"], 
-        "category": "IDENTICAL; NOT DIFFERENT"
+        "elements": ["MARKER", "PEN", "PENCIL", "ERASER"], 
+        "category": "SCHOOL SUPPLIES"
     }, 
     {
         "color": "blue", 
-        "elements": ["STOP", "SEAL", "PLUG", "CORK"], 
-        "category": "TO CLOSE UP A HOLE"
+        "elements": ["SPOUSE", "SIBLING", "PARENT", "NIBLING"], 
+        "category": "GENDER NEUTRAL TERMS FOR FAMILY MEMBERS"
     }, 
     {
         "color": "purple", 
-        "elements": ["SEEL", "ELECTRODE", "DITTO", "MEOWTH"], 
-        "category": "POKÉMON"
+        "elements": ["MOM", "RADAR", "RACECAR", "ROTATOR"], 
+        "category": "PALINDROMES"
     }
 ]
