@@ -1,22 +1,22 @@
 [
     {
         "color": "yellow", 
-        "elements": ["ROCK", "PAPER", "SCISSORS", "SHOOT"], 
-        "category": "THINGS YOU SAY WHILE PLAYING ROCK, PAPER, SCISSORS"
+        "elements": ["UMBRELLA", "TOWEL", "SUNSCREEN", "COOLER"], 
+        "category": "THINGS TO BRING TO THE BEACH"
     },
     {
         "color": "green", 
-        "elements": ["MARKER", "PEN", "PENCIL", "ERASER"], 
-        "category": "SCHOOL SUPPLIES"
+        "elements": ["DESERT", "TUNDRA", "SAVANNA", "TAIGA"], 
+        "category": "BIOMES"
     }, 
     {
         "color": "blue", 
-        "elements": ["SPOUSE", "SIBLING", "PARENT", "NIBLING"], 
-        "category": "GENDER NEUTRAL TERMS FOR FAMILY MEMBERS"
+        "elements": ["BASIL", "CILANTRO", "ONION", "LIME"], 
+        "category": "PHO GARNISHES"
     }, 
     {
         "color": "purple", 
-        "elements": ["MOM", "RADAR", "RACECAR", "ROTATOR"], 
-        "category": "PALINDROMES"
+        "elements": ["SAND", "SNOW", "SEASIDE", "MUSHROOM"], 
+        "category": "KINGDOMS IN SUPER MARIO ODYSSEY"
     }
 ]
