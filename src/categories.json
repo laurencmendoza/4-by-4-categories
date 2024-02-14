@@ -1,22 +1,22 @@
 [
     {
         "color": "yellow", 
-        "elements": ["UMBRELLA", "TOWEL", "SUNSCREEN", "COOLER"], 
-        "category": "THINGS TO BRING TO THE BEACH"
+        "elements": ["MARINARA, CHIMICHURRI", "SALSA", "PESTO"], 
+        "category": "SAUCES"
     },
     {
         "color": "green", 
-        "elements": ["DESERT", "TUNDRA", "SAVANNA", "TAIGA"], 
-        "category": "BIOMES"
+        "elements": ["PROCLIVITY", "DEVOTION", "ADORATION", "REVERENCE"], 
+        "category": "ADMIRATION"
     }, 
     {
         "color": "blue", 
-        "elements": ["BASIL", "CILANTRO", "ONION", "LIME"], 
-        "category": "PHO GARNISHES"
+        "elements": ["TOMATO", "POTATO", "PAJAMAS", "HAVANA"], 
+        "category": "IN THE SONG 'YOU SAY TOMATO, I SAY TOMATO'"
     }, 
     {
         "color": "purple", 
-        "elements": ["SAND", "SNOW", "SEASIDE", "MUSHROOM"], 
-        "category": "KINGDOMS IN SUPER MARIO ODYSSEY"
+        "elements": ["DAY", "BEANS", "ONION", "TEA"], 
+        "category": "GREEN ______"
     }
 ]
