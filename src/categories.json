@@ -1,22 +1,22 @@
 [
     {
         "color": "yellow", 
-        "elements": ["MARINARA", "CHIMICHURRI", "SALSA", "PESTO"], 
-        "category": "SAUCES"
+        "elements": ["SKIM", "SOY", "CASHEW", "WHOLE"], 
+        "category": "TYPES OF MILK"
     },
     {
         "color": "green", 
-        "elements": ["PROCLIVITY", "DEVOTION", "ADORATION", "REVERENCE"], 
-        "category": "ADMIRATION"
+        "elements": ["WASABI", "MASAGO", "NORI", "RICE"], 
+        "category": "SUSHI FILLINGS AND TOPPINGS"
     }, 
     {
         "color": "blue", 
-        "elements": ["TOMATO", "POTATO", "PAJAMAS", "HAVANA"], 
-        "category": "IN THE SONG 'YOU SAY TOMATO, I SAY TOMATO'"
+        "elements": ["ONE PIECE", "BLEACH", "NARUTO", "INUYASHA"], 
+        "category": "POPULAR ANIMES"
     }, 
     {
         "color": "purple", 
-        "elements": ["DAY", "BEANS", "ONION", "TEA"], 
-        "category": "GREEN ______"
+        "elements": ["HELIX", "HERO", "SCENARIO", "GOOEY"], 
+        "category": "RHYMES WITH FELIX, ZERO, MARIO AND LOUIE"
     }
 ]
