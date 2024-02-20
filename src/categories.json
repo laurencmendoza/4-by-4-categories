@@ -1,22 +1,22 @@
 [
     {
         "color": "yellow", 
-        "elements": ["SKIM", "SOY", "CASHEW", "WHOLE"], 
-        "category": "TYPES OF MILK"
+        "elements": ["SCARF", "GAITER", "TIE", "NECKLACE"], 
+        "category": "NECK ACCESSORIES"
     },
     {
         "color": "green", 
-        "elements": ["WASABI", "MASAGO", "NORI", "RICE"], 
-        "category": "SUSHI FILLINGS AND TOPPINGS"
+        "elements": ["MUDDY", "BLUR", "CLOUD", "FOG"], 
+        "category": "TO OBFUSCATE"
     }, 
     {
         "color": "blue", 
-        "elements": ["ONE PIECE", "BLEACH", "NARUTO", "INUYASHA"], 
-        "category": "POPULAR ANIMES"
+        "elements": ["RAIN", "SLEET", "SNOW", "HAIL"], 
+        "category": "TYPES OF PRECIPITATION"
     }, 
     {
         "color": "purple", 
-        "elements": ["HELIX", "HERO", "SCENARIO", "GOOEY"], 
-        "category": "RHYMES WITH FELIX, ZERO, MARIO AND LOUIE"
+        "elements": ["MOON", "KITTENS", "MITTENS", "MUSH"], 
+        "category": "FROM THE BOOK 'GOODNIGHT MOON'"
     }
 ]
