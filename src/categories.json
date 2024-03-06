@@ -12,7 +12,7 @@
     {
         "color": "blue", 
         "elements": ["CANT", "WELL", "SHED", "WONT"], 
-        "category": "WORDS THAT ARE ALSO CONTRACTIONS IF YOU ADD AN APOSTROPHE"
+        "category": "WORDS THAT ARE ALSO CONTRACTIONS"
     }, 
     {
         "color": "purple", 
