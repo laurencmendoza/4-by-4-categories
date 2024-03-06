@@ -1,22 +1,22 @@
 [
     {
         "color": "yellow", 
-        "elements": ["SCARF", "GAITER", "TIE", "NECKLACE"], 
-        "category": "NECK ACCESSORIES"
+        "elements": ["CREPE", "MACARON", "PROFITEROLE", "CROISSANT"], 
+        "category": "FRENCH DESSERTS"
     },
     {
         "color": "green", 
-        "elements": ["MUDDY", "BLUR", "CLOUD", "FOG"], 
-        "category": "TO OBFUSCATE"
+        "elements": ["DONUT", "BAGEL", "WASHER", "TIRE"], 
+        "category": "CIRCLES WITH A HOLE IN THE MIDDLE"
     }, 
     {
         "color": "blue", 
-        "elements": ["RAIN", "SLEET", "SNOW", "HAIL"], 
-        "category": "TYPES OF PRECIPITATION"
+        "elements": ["CANT", "WELL", "SHED", "WONT"], 
+        "category": "WORDS THAT ARE ALSO CONTRACTIONS IF YOU ADD AN APOSTROPHE"
     }, 
     {
         "color": "purple", 
-        "elements": ["MOON", "KITTENS", "MITTENS", "MUSH"], 
-        "category": "FROM THE BOOK 'GOODNIGHT MOON'"
+        "elements": ["SPELL", "BAG", "RAIN", "MIC"], 
+        "category": "______ CHECK"
     }
 ]
